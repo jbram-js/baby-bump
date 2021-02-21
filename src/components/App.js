@@ -1,3 +1,6 @@
+import React from "react";
+import {Switch, Route} from "react-router-dom";
+
 import NavBar from "./NavBar";
 import Landing from "./Landing";
 import About from "./About";
@@ -10,10 +13,12 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Landing />
-      <About />
-      <Team />
-      <Contact />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/team" component={Team} />
+        <Route exact path="/contact" component={Contact} />
+      </Switch>
       <Footer />
     </div>
   );
