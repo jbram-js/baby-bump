@@ -1,10 +1,16 @@
-import React from "react";
-import "../styles/Contact.css";
+import React, {useState} from "react";
+import Datepicker from "react-datepicker";
 
 const Contact = () => {
+  const [startDate, setStartDate] = useState(new Date());
+
+  const handleChange = (date) => {
+    setStartDate(date);
+  };
+
   return (
-    <div className="contact">
-      <p>this is my contact page</p>
+    <div>
+      <Datepicker selected={startDate} onChange={handleChange} />
     </div>
   );
 };
