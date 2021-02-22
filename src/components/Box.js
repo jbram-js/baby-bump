@@ -5,14 +5,13 @@ import {useForm, Controller} from "react-hook-form";
 import "../styles/Box.css";
 
 const Box = () => {
-  const [submittedData, setSubmittedData] = useState({});
-  const {handleSubmit, register, control, errors, watch} = useForm();
+  const [birthDate, setBirthDate] = useState(null);
+  const [dueDate, setDueDate] = useState(null);
+  const {handleSubmit, register, control, errors} = useForm();
 
   const onSubmit = (data) => {
-    setSubmittedData(data);
+    console.log(data);
   };
-
-  const {setDate} = watch(["setDate"]);
 
   return (
     <div className="box">
@@ -37,27 +36,42 @@ const Box = () => {
           {errors.name && <span className="error">{errors.name.message}</span>}
         </div>
         <div className="form-section">
-          <label htmlFor="dob" className="form-label">
+          <label htmlFor="birthDate" className="form-label">
             Date of birth
           </label>
           <Controller
-            as={
-              <DatePicker
-                id="dob"
-                placeholderText="DD/MM/YYYY"
-                dateFormat="mm-dd-yyyy"
-                selectsStart
-                setDate={setDate}
-              />
-            }
-            name="dob"
+            as={DatePicker}
             control={control}
             valueName="selected"
-            ref={register({
-              required: {message: "This is a required field", value: true},
-            })}
+            selected={birthDate}
+            onChange={([selected]) => {
+              setBirthDate(selected);
+              return selected;
+            }}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Select Date"
+            name="birthDate"
+            defaultValue={null}
           />
-          {errors.dob && <span className="error">{errors.dob.message}</span>}
+        </div>
+        <div className="form-section">
+          <label htmlFor="dueDate" className="form-label">
+            Due date
+          </label>
+          <Controller
+            as={DatePicker}
+            control={control}
+            valueName="selected"
+            selected={dueDate}
+            onChange={([selected]) => {
+              setDueDate(selected);
+              return selected;
+            }}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Select Date"
+            name="dueDate"
+            defaultValue={null}
+          />
         </div>
         <div className="form-section">
           <label htmlFor="email" className="form-label">
@@ -116,8 +130,6 @@ const Box = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <p>Submitted data:</p>
-      <pre>{JSON.stringify(submittedData, null, 2)}</pre>
     </div>
   );
 };
