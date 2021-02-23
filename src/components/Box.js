@@ -5,7 +5,12 @@ import {useForm, Controller} from "react-hook-form";
 import "../styles/Box.css";
 
 const Box = () => {
-  const {handleSubmit, register, control, errors} = useForm();
+  const preloadedValues = {
+    babiesAge: "N/A",
+  };
+  const {handleSubmit, register, control, errors} = useForm({
+    defaultValues: preloadedValues,
+  });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -32,42 +37,6 @@ const Box = () => {
             })}
           />
           {errors.name && <span className="error">{errors.name.message}</span>}
-        </div>
-        <div className="form-section">
-          <label htmlFor="birthDate" className="form-label">
-            Date of birth
-          </label>
-          <Controller
-            control={control}
-            name="birthDate"
-            render={({onChange, onBlur, value}) => (
-              <ReactDatePicker
-                onChange={onChange}
-                onBlur={onBlur}
-                selected={value}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select date..."
-              />
-            )}
-          />
-        </div>
-        <div className="form-section">
-          <label htmlFor="dueDate" className="form-label">
-            Due date
-          </label>
-          <Controller
-            control={control}
-            name="dueDate"
-            render={({onChange, onBlur, value}) => (
-              <ReactDatePicker
-                onChange={onChange}
-                onBlur={onBlur}
-                selected={value}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select date..."
-              />
-            )}
-          />
         </div>
         <div className="form-section">
           <label htmlFor="email" className="form-label">
@@ -102,6 +71,24 @@ const Box = () => {
           )}
         </div>
         <div className="form-section">
+          <label htmlFor="birthDate" className="form-label">
+            Date of birth
+          </label>
+          <Controller
+            control={control}
+            name="birthDate"
+            render={({onChange, onBlur, value}) => (
+              <ReactDatePicker
+                onChange={onChange}
+                onBlur={onBlur}
+                selected={value}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="DD/MM/YYYY"
+              />
+            )}
+          />
+        </div>
+        <div className="form-section">
           <label htmlFor="communication" className="form-label">
             Preferred method of communication
           </label>
@@ -122,6 +109,87 @@ const Box = () => {
           </select>
           {errors.communication && (
             <span className="error">{errors.communication.message}</span>
+          )}
+        </div>
+        <h1>Your pregnancy</h1>
+        <div className="form-section">
+          <label htmlFor="dueDate" className="form-label">
+            Due date (where applicable)
+          </label>
+          <Controller
+            control={control}
+            name="dueDate"
+            render={({onChange, onBlur, value}) => (
+              <ReactDatePicker
+                onChange={onChange}
+                onBlur={onBlur}
+                selected={value}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="DD/MM/YYYY"
+              />
+            )}
+          />
+        </div>
+        <div className="form-section">
+          <label htmlFor="babiesAge" className="form-label">
+            Babies age (where applicable)
+          </label>
+          <input id="babiesAge" name="babiesAge" type="text" ref={register} />
+        </div>
+        <div className="form-section">
+          <label htmlFor="midwife" className="form-label">
+            Named midwife
+          </label>
+          <input
+            id="midwife"
+            name="midwife"
+            type="text"
+            ref={register({
+              required: {message: "This is a required field", value: true},
+            })}
+          />
+          {errors.midwife && (
+            <span className="error">{errors.midwife.message}</span>
+          )}
+        </div>
+        <div className="form-section">
+          <label htmlFor="referral" className="form-label">
+            Referral type
+          </label>
+          <select
+            id="referral"
+            name="referral"
+            ref={register({
+              required: {
+                message: "This is a required field",
+                value: true,
+              },
+            })}
+          >
+            <option value="">Select...</option>
+            <option value="Professional">Professional</option>
+            <option value="Friend">Friend</option>
+            <option value="Family member">Family member</option>
+            <option value="Self">Self</option>
+          </select>
+          {errors.referral && (
+            <span className="error">{errors.referral.message}</span>
+          )}
+        </div>
+        <div className="form-section">
+          <label htmlFor="hearAbout" className="form-label">
+            How did you hear about us?
+          </label>
+          <input
+            id="hearAbout"
+            name="hearAbout"
+            type="text"
+            ref={register({
+              required: {message: "This is a required field", value: true},
+            })}
+          />
+          {errors.hearAbout && (
+            <span className="error">{errors.hearAbout.message}</span>
           )}
         </div>
         <button type="submit">Submit</button>
