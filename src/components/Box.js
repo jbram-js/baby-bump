@@ -45,7 +45,7 @@ const Box = () => {
                 onChange={onChange}
                 onBlur={onBlur}
                 selected={value}
-                dateFormat="dd-MM-yyyy"
+                dateFormat="dd/MM/yyyy"
                 placeholderText="Select date..."
               />
             )}
@@ -63,7 +63,7 @@ const Box = () => {
                 onChange={onChange}
                 onBlur={onBlur}
                 selected={value}
-                dateFormat="dd-MM-yyyy"
+                dateFormat="dd/MM/yyyy"
                 placeholderText="Select date..."
               />
             )}
