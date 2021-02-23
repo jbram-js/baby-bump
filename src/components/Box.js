@@ -1,12 +1,10 @@
-import React, {useState} from "react";
-import DatePicker from "react-datepicker";
+import React from "react";
+import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {useForm, Controller} from "react-hook-form";
 import "../styles/Box.css";
 
 const Box = () => {
-  const [birthDate, setBirthDate] = useState(null);
-  const [dueDate, setDueDate] = useState(null);
   const {handleSubmit, register, control, errors} = useForm();
 
   const onSubmit = (data) => {
@@ -40,18 +38,17 @@ const Box = () => {
             Date of birth
           </label>
           <Controller
-            as={DatePicker}
             control={control}
-            valueName="selected"
-            selected={birthDate}
-            onChange={([selected]) => {
-              setBirthDate(selected);
-              return selected;
-            }}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Select Date"
             name="birthDate"
-            defaultValue={null}
+            render={({onChange, onBlur, value}) => (
+              <ReactDatePicker
+                onChange={onChange}
+                onBlur={onBlur}
+                selected={value}
+                dateFormat="dd-MM-yyyy"
+                placeholderText="Select date..."
+              />
+            )}
           />
         </div>
         <div className="form-section">
@@ -59,18 +56,17 @@ const Box = () => {
             Due date
           </label>
           <Controller
-            as={DatePicker}
             control={control}
-            valueName="selected"
-            selected={dueDate}
-            onChange={([selected]) => {
-              setDueDate(selected);
-              return selected;
-            }}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Select Date"
             name="dueDate"
-            defaultValue={null}
+            render={({onChange, onBlur, value}) => (
+              <ReactDatePicker
+                onChange={onChange}
+                onBlur={onBlur}
+                selected={value}
+                dateFormat="dd-MM-yyyy"
+                placeholderText="Select date..."
+              />
+            )}
           />
         </div>
         <div className="form-section">
