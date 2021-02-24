@@ -24,7 +24,7 @@ const Box = () => {
         a little box of hope.
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="name" className="form-label">
             Name
           </label>
@@ -38,7 +38,7 @@ const Box = () => {
           />
           {errors.name && <span className="error">{errors.name.message}</span>}
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="email" className="form-label">
             Email address
           </label>
@@ -54,7 +54,7 @@ const Box = () => {
             <span className="error">{errors.email.message}</span>
           )}
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="phone" className="form-label">
             Phone number
           </label>
@@ -70,7 +70,7 @@ const Box = () => {
             <span className="error">{errors.phone.message}</span>
           )}
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="birthDate" className="form-label">
             Date of birth
           </label>
@@ -88,7 +88,7 @@ const Box = () => {
             )}
           />
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="communication" className="form-label">
             Preferred method of communication
           </label>
@@ -112,7 +112,7 @@ const Box = () => {
           )}
         </div>
         <h1>Your pregnancy</h1>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="dueDate" className="form-label">
             Due date (where applicable)
           </label>
@@ -130,13 +130,13 @@ const Box = () => {
             )}
           />
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="babiesAge" className="form-label">
             Babies age (where applicable)
           </label>
           <input id="babiesAge" name="babiesAge" type="text" ref={register} />
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="midwife" className="form-label">
             Named midwife
           </label>
@@ -152,7 +152,7 @@ const Box = () => {
             <span className="error">{errors.midwife.message}</span>
           )}
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="referral" className="form-label">
             Referral type
           </label>
@@ -176,7 +176,7 @@ const Box = () => {
             <span className="error">{errors.referral.message}</span>
           )}
         </div>
-        <div className="form-section">
+        <div className="box-form-section">
           <label htmlFor="hearAbout" className="form-label">
             How did you hear about us?
           </label>
