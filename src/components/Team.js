@@ -1,4 +1,5 @@
 import React from "react";
+import placeholder from "../resources/placeholder-person.jpg";
 import "../styles/Team.css";
 
 const Team = () => {
@@ -14,6 +15,50 @@ const Team = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
+      <div className="meet-team">
+        <div class="team-card">
+          <img src={placeholder} className="card-image" />
+          <div class="card-description">
+            <span class="card-description-text">Name Surname</span>
+          </div>
+          <span class="card-details">A little info about my involvement</span>
+        </div>
+        <div class="team-card">
+          <img src={placeholder} className="card-image" />
+          <div class="card-description">
+            <span class="card-description-text">Name Surname</span>
+          </div>
+          <span class="card-details">A little info about my involvement</span>
+        </div>
+        <div class="team-card">
+          <img src={placeholder} className="card-image" />
+          <div class="card-description">
+            <span class="card-description-text">Name Surname</span>
+          </div>
+          <span class="card-details">A little info about my involvement</span>
+        </div>
+        <div class="team-card">
+          <img src={placeholder} className="card-image" />
+          <div class="card-description">
+            <span class="card-description-text">Name Surname</span>
+          </div>
+          <span class="card-details">A little info about my involvement</span>
+        </div>
+        <div class="team-card">
+          <img src={placeholder} className="card-image" />
+          <div class="card-description">
+            <span class="card-description-text">Name Surname</span>
+          </div>
+          <span class="card-details">A little info about my involvement</span>
+        </div>
+        <div class="team-card">
+          <img src={placeholder} className="card-image" />
+          <div class="card-description">
+            <span class="card-description-text">Name Surname</span>
+          </div>
+          <span class="card-details">A little info about my involvement</span>
+        </div>
+      </div>
     </div>
   );
 };
