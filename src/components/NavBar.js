@@ -4,6 +4,7 @@ import "../styles/NavBar.css";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+
   return (
     <div className="nav">
       <nav>

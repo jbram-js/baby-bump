@@ -54,7 +54,7 @@ nav .burger {
   nav .nav-link {
     position: absolute;
     display: block;
-    top: -20px;
+    top: -16px;
     left: 0;
     height: 100vh;
     background: grey;

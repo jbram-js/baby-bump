@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {useForm, Controller} from "react-hook-form";
 import "../styles/Box.css";
 
 const Box = () => {
+  const [boxKey, setBoxKey] = useState(10);
   const preloadedValues = {
     babiesAge: "N/A",
   };
@@ -14,6 +15,7 @@ const Box = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    setBoxKey(boxKey + 1);
   };
 
   return (
@@ -23,7 +25,7 @@ const Box = () => {
         Fill in the below form to refer a friend, family member or yourself for
         a little box of hope.
       </p>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form key={boxKey} onSubmit={handleSubmit(onSubmit)}>
         <div className="box-form-section">
           <label htmlFor="name" className="form-label">
             Name
