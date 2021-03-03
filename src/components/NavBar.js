@@ -5,6 +5,9 @@ import "../styles/NavBar.css";
 const NavBar = () => {
   const [open, setOpen] = useState(false);
 
+  const showSidebar = () => setOpen(!open);
+  const hideSidebar = () => setOpen(false);
+
   return (
     <div className="nav">
       <nav>
@@ -16,32 +19,36 @@ const NavBar = () => {
           }}
         >
           <li className="nav-link-item">
-            <Link to="/" className="link">
+            <Link to="/" className="link" onClick={hideSidebar}>
               Home
             </Link>
           </li>
           <li className="nav-link-item">
-            <Link to="/about" className="link">
+            <Link to="/about" className="link" onClick={hideSidebar}>
               About us
             </Link>
           </li>
           <li className="nav-link-item">
-            <Link to="/our-team" className="link">
+            <Link to="/our-team" className="link" onClick={hideSidebar}>
               Meet the team
             </Link>
           </li>
           <li className="nav-link-item">
-            <Link to="/little-box-of-hope" className="link">
+            <Link
+              to="/little-box-of-hope"
+              className="link"
+              onClick={hideSidebar}
+            >
               Little box of hope
             </Link>
           </li>
           <li className="nav-link-item">
-            <Link to="/contact" className="link">
+            <Link to="/contact" className="link" onClick={hideSidebar}>
               Contact us
             </Link>
           </li>
         </ul>
-        <i onClick={() => setOpen(!open)} className="fas fa-bars burger"></i>
+        <i onClick={showSidebar} className="fas fa-bars burger"></i>
       </nav>
     </div>
   );
