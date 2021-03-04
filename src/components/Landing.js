@@ -4,7 +4,7 @@ import "../styles/Landing.css";
 const Landing = () => {
   return (
     <div className="landing">
-      <p>this is my landing page</p>
+      <h1>Welcome to Bury Bump Buddies</h1>
     </div>
   );
 };

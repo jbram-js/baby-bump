@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import logo from "../resources/BBB-logo.svg";
 import "../styles/NavBar.css";
 
 const NavBar = () => {
@@ -11,18 +12,17 @@ const NavBar = () => {
   return (
     <div className="nav">
       <nav>
-        <div className="logo">Bury Bump Buddies</div>
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} alt="Bury Bump Buddies Logo" />
+          </Link>
+        </div>
         <ul
           className="nav-link"
           style={{
             transform: open ? "translateX(0px)" : "",
           }}
         >
-          <li className="nav-link-item">
-            <Link to="/" className="link" onClick={hideSidebar}>
-              Home
-            </Link>
-          </li>
           <li className="nav-link-item">
             <Link to="/about" className="link" onClick={hideSidebar}>
               About us

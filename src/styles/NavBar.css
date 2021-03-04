@@ -7,33 +7,34 @@ nav {
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
-  background-color: lightgrey;
-  color: #fff;
+  background-color: #fff;
 }
 
 nav .logo {
-  font-size: 24px;
-  font-weight: 700;
+  width: 300px;
+  height: auto;
+  margin-right: 100px;
 }
 
 nav .link {
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
+  color: #abc4ff;
 }
 
 nav .link:visited {
-  color: #fff;
+  color: #abc4ff;
 }
 
 nav .link:hover {
-  border-bottom: 1px solid #fff;
+  border-bottom: 2px solid #abc4ff;
 }
 
 nav .nav-link {
   display: flex;
   justify-content: space-around;
-  width: 45%;
+  width: 40%;
 }
 
 nav .nav-link-item {
@@ -57,7 +58,7 @@ nav .burger {
     top: -16px;
     left: 0;
     height: 100vh;
-    background: grey;
+    background: #d7e3fc;
     width: 50%;
     transform: translateX(-500px);
     transition: 0.5s ease-in-out;
