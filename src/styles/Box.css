@@ -14,9 +14,3 @@
 input {
   display: inline;
 }
-
-.error {
-  display: inline;
-  color: red;
-  padding: 0 5px;
-}
