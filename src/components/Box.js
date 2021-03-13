@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import {useForm, Controller} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import "../styles/Box.css";
 import {init, sendForm} from "emailjs-com";
 init("user_UJZWlkJrwfOaaqvPbKAZa");
 
-const Box = () => {
+const Box = (props) => {
   const [contactNumber, setContactNumber] = useState("000000");
   const [statusMessage, setStatusMessage] = useState("Message");
 
@@ -14,13 +14,9 @@ const Box = () => {
     setContactNumber(numStr.substring(numStr.length - 6));
   };
 
-  const preloadedValues = {
-    babiesAge: "N/A",
-  };
+  const {register, watch, handleSubmit} = useForm();
 
-  const {register, handleSubmit} = useForm({
-    defaultValues: preloadedValues,
-  });
+  const pregnancyStatus = watch("pregnancy_status", props.pregnancyStatus);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -110,36 +106,84 @@ const Box = () => {
           <label htmlFor="communication" className="form-label">
             Preferred method of communication
           </label>
-          <select
+          <input
+            type="radio"
             id="communication"
             name="communication"
-            required={true}
-            ref={register}
-          >
-            <option value="">Select...</option>
-            <option value="Phone Call">Phone call</option>
-            <option value="Text">Text</option>
-            <option value="Email">Email</option>
-          </select>
-        </div>
-        <h1>Your pregnancy</h1>
-        <div className="box-form-section">
-          <label htmlFor="due_date" className="form-label">
-            Due date (where applicable)
-          </label>
-          <input
-            id="due_date"
-            name="due_date"
-            type="text"
+            value="Phone call"
             required={true}
             ref={register}
           />
+          Phone Call
+          <input
+            type="radio"
+            id="communication"
+            name="communication"
+            value="Text"
+            required={true}
+            ref={register}
+          />
+          Text
+          <input
+            type="radio"
+            id="communication"
+            name="communication"
+            value="Email"
+            required={true}
+            ref={register}
+          />
+          Email
         </div>
         <div className="box-form-section">
-          <label htmlFor="babies_age" className="form-label">
-            Babies age (where applicable)
+          <label htmlFor="pregnancy_status" className="form-label">
+            Pregnancy status
           </label>
-          <input id="babies_age" name="babies_age" type="text" ref={register} />
+          <input
+            type="radio"
+            id="pregnancy_status"
+            name="pregnancy_status"
+            value="Pregnant"
+            required={true}
+            ref={register}
+          />
+          Pregnant
+          <input
+            type="radio"
+            id="pregnancy_status"
+            name="pregnancy_status"
+            value="Given birth"
+            required={true}
+            ref={register}
+          />
+          Given birth
+          {pregnancyStatus === "Pregnant" && (
+            <div>
+              <label htmlFor="due_date" className="form-label">
+                Due date
+              </label>
+              <input
+                id="due_date"
+                name="due_date"
+                type="text"
+                required={true}
+                ref={register}
+              />
+            </div>
+          )}
+          {pregnancyStatus === "Given birth" && (
+            <div>
+              <label htmlFor="babies_age" className="form-label">
+                Babies age
+              </label>
+              <input
+                id="babies_age"
+                name="babies_age"
+                type="text"
+                required={true}
+                ref={register}
+              />
+            </div>
+          )}
         </div>
         <div className="box-form-section">
           <label htmlFor="midwife" className="form-label">
@@ -157,13 +201,42 @@ const Box = () => {
           <label htmlFor="referral" className="form-label">
             Referral type
           </label>
-          <select id="referral" name="referral" required={true} ref={register}>
-            <option value="">Select...</option>
-            <option value="Professional">Professional</option>
-            <option value="Friend">Friend</option>
-            <option value="Family member">Family member</option>
-            <option value="Self">Self</option>
-          </select>
+          <input
+            type="radio"
+            id="referral"
+            name="referral"
+            value="Professional"
+            required={true}
+            ref={register}
+          />
+          Professional
+          <input
+            type="radio"
+            id="referral"
+            name="referral"
+            value="Friend"
+            required={true}
+            ref={register}
+          />
+          Friend
+          <input
+            type="radio"
+            id="referral"
+            name="referral"
+            value="Family member"
+            required={true}
+            ref={register}
+          />
+          Family member
+          <input
+            type="radio"
+            id="referral"
+            name="referral"
+            value="Self"
+            required={true}
+            ref={register}
+          />
+          Self
         </div>
         <div className="box-form-section">
           <label htmlFor="hear_about" className="form-label">
