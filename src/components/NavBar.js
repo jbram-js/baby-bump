@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars} from "@fortawesome/free-solid-svg-icons";
 import logo from "../resources/BBB-logo.svg";
 import "../styles/NavBar.css";
 
@@ -48,7 +50,11 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
-        <i onClick={showSidebar} className="fas fa-bars burger"></i>
+        <FontAwesomeIcon
+          icon={faBars}
+          onClick={showSidebar}
+          className="nav-icon"
+        />
       </nav>
     </div>
   );

@@ -9,7 +9,8 @@
 .team-card {
   display: flex;
   flex-direction: column;
-  border: 2px solid #cad0d2;
+  background-color: #fff;
+  border: 2px solid #abc4ff;
   border-radius: 10px;
   margin: 10px;
   width: 25%;
@@ -19,7 +20,6 @@
 .card-image {
   max-width: 25vw;
   max-height: auto;
-  border-bottom: 2px solid #d7dbdd;
 }
 
 .card-description {
@@ -27,11 +27,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
   padding: 15px 0;
 }
 
 .card-description-text {
-  color: #57727c;
+  color: #abc4ff;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -40,9 +41,9 @@
 
 .card-details {
   text-align: center;
-  color: #57727c;
+  background-color: #abc4ff;
+  color: #fff;
   font-size: 14px;
   padding: 5px 15px;
-  border-top: 2px solid #d7dbdd;
-  background-color: #eef3f5;
+  border-top: 2px solid #abc4ff;
 }

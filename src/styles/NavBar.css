@@ -41,6 +41,10 @@ nav .nav-link-item {
   font-size: 18px;
 }
 
+.nav-icon {
+  display: none;
+}
+
 nav .burger {
   font-size: 30px;
   display: none;
@@ -48,8 +52,10 @@ nav .burger {
 }
 
 @media all and (max-width: 768px) {
-  nav .burger {
-    display: block;
+  .nav-icon {
+    display: inherit;
+    color: #abc4ff;
+    font-size: 32px;
   }
 
   nav .nav-link {
@@ -58,10 +64,10 @@ nav .burger {
     top: -16px;
     left: 0;
     height: 100vh;
-    background: #d7e3fc;
+    background: #edf2fb;
     width: 50%;
     transform: translateX(-500px);
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
 
   nav .nav-link li:first-of-type {
