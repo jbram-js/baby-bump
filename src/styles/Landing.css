@@ -1,1 +1,27 @@
+.landing {
+  background-image: url(../resources/landing.jpg);
+  width: 100vw;
+  height: 89vh;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+}
 
+.landing-h1 {
+  position: absolute;
+  bottom: 100px;
+  left: 40px;
+  font-size: 40px;
+  background-color: #abc4ff;
+  color: #fff;
+  padding: 2px 8px 2px 8px;
+}
+
+.landing-h3 {
+  position: absolute;
+  bottom: 55px;
+  left: 40px;
+  font-size: 28px;
+  background-color: #abc4ff;
+  color: #fff;
+  padding: 2px 8px 2px 8px;
+}
