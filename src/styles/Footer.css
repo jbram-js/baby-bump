@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e2eafc;
+  margin-top: 50px;
+  z-index: 99;
+  position: -webkit-fixed;
+}
+
+.footer-p {
+  margin-left: 15px;
+  color: #abc4ff;
+}
+
+.bram {
+  text-decoration: none;
+  font-weight: 700;
+  color: #abc4ff;
+  cursor: pointer;
+}
+
+.bram:visited {
+  color: #abc4ff;
+}
+
+.scroll-button {
+  color: #abc4ff;
+  cursor: pointer;
+  font-size: 40px;
+  vertical-align: middle;
+  padding: 7px 15px 0 0;
+}
